@@ -43,6 +43,8 @@ class ProductCell: UITableViewCell {
         descriptionLabel.text = product.description
         priceLabel.text = "$\(product.price)"
         rateButton.setTitle("\(product.rating.rate)", for: .normal)
-        //productImageView.setImage(with: product.image)
+        guard let url = URL(string: product.image) else { return }
+        productImageView.loadImage(from: url)
+        //productImageView.load(url: url)//setImage(with: product.image)
     }
 }
